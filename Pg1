@@ -1,0 +1,73 @@
+import java.util.*;
+ class Student{
+  private String name;
+  private int roll;
+  private String grade;
+    Student ()
+  {
+    this.name = null;
+    this.roll = 0;
+    this.grade = null;
+  }
+  Student (String name, int roll, String grade)
+  {
+    this.name = name;
+    this.roll = roll;
+    this.grade = grade;
+  }
+  public void setName (String name)
+  {
+    this.name = name;
+  }
+  public void setRoll (int roll)
+  {
+    this.roll = roll;
+  } 
+  public void setGrade (String grade)
+  {
+    this.grade = grade;
+  }
+  public String getName ()
+  {
+    return name;
+  }
+  public int getRoll ()
+  {
+    return roll;
+  }
+  public String getGrade ()
+  {
+    return grade;
+  }
+}
+
+public class Main
+{
+  public static void main (String[]args)
+  {
+    Scanner sc = new Scanner (System.in);
+      System.out.println ("Enter the no.of students ");
+    int n = sc.nextInt ();
+    Student[] std = new Student[n];
+    for (int i = 0; i < n; i++)
+      {
+    std[i]=new Student();
+	System.out.println ("Enter the Name");
+	std[i].setName(sc.next());
+	System.out.println ("Enter the age");
+	std[i].setRoll (sc.nextInt ());
+	System.out.println ("Enter the grade");
+	std[i].setGrade (sc.next());
+      }
+    int mroll = std[0].getRoll ();
+    int mg = 0;
+    for (int i = 0; i < n; i++)
+      {
+	if (std[i].getRoll()>mroll)
+	  {
+	    mg = i;
+	  }
+      }
+    System.out.println ("Student Name:"+std[mg].getName()+" "+"Student age:"+std[mg].getRoll()+" "+"Student Grade:"+std[mg].getGrade());
+  }
+}
