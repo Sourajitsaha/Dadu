@@ -46,17 +46,17 @@ public class Main
   public static void main (String[]args)
   {
     Scanner sc = new Scanner (System.in);
-      System.out.println ("Enter the no.of students ");
+      System.out.println ("Enter the no.of Employees ");
     int n = sc.nextInt ();
     Student[] std = new Student[n];
     for (int i = 0; i < n; i++)
       {
     std[i]=new Student();
-	System.out.println ("Enter the Name");
+	System.out.println ("Enter the Student Name");
 	std[i].setName(sc.next());
 	System.out.println ("Enter the age");
 	std[i].setRoll (sc.nextInt ());
-	System.out.println ("Enter the grade");
+	System.out.println ("Enter the Roll no.");
 	std[i].setGrade (sc.next());
       }
     int mroll = std[0].getRoll ();
@@ -65,9 +65,16 @@ public class Main
       {
 	if (std[i].getRoll()>mroll)
 	  {
-	    mg = i;
+	    mroll=std[i].getRoll();
 	  }
       }
-    System.out.println ("Student Name:"+std[mg].getName()+" "+"Student age:"+std[mg].getRoll()+" "+"Student Grade:"+std[mg].getGrade());
+       for (int i = 0; i < n; i++)
+      {
+	if (mroll==std[i].getRoll())
+	  {
+	    mg=i;
+	  }
+      }
+    System.out.println ("Student Name:"+std[mg].getName()+" "+"Student age:"+std[mg].getRoll()+" "+"Student grade:"+std[mg].getGrade());
   }
 }
