@@ -1,0 +1,87 @@
+import java.util.*;
+ class Student{
+  private String name;
+  private int roll;
+  private String grade;
+    Student ()
+  {
+    this.name = null;
+    this.roll = 0;
+    this.grade = null;
+  }
+  Student (String name, int roll, String grade)
+  {
+    this.name = name;
+    this.roll = roll;
+    this.grade = grade;
+  }
+  public void setName (String name)
+  {
+    this.name = name;
+  }
+  public void setRoll (int roll)
+  {
+    this.roll = roll;
+  } 
+  public void setGrade (String grade)
+  {
+    this.grade = grade;
+  }
+  public String getName ()
+  {
+    return name;
+  }
+  public int getRoll ()
+  {
+    return roll;
+  }
+  public String getGrade ()
+  {
+    return grade;
+  }
+}
+
+public class Main
+{
+  public static void main (String[]args)
+  {
+    Scanner sc = new Scanner (System.in);
+      System.out.println ("Enter the no.of Employees ");
+    int n = sc.nextInt ();
+    Student[] std = new Student[n];
+    for (int i = 0; i < n; i++)
+      {
+    std[i]=new Student();
+	System.out.println ("Enter the Employee Name");
+	std[i].setName(sc.next());
+	System.out.println ("Enter the salary");
+	std[i].setRoll (sc.nextInt ());
+	System.out.println ("Enter the id_No."+" "+" Remember the id no. should be of 4 digits");
+	std[i].setGrade (sc.next());
+      }
+    int mroll = std[0].getRoll ();
+    int mg = 0;
+    int msroll=std[1].getRoll();
+    for (int i = 0; i < n; i++)
+      {
+	if (std[i].getRoll()>mroll)
+	  {
+	    mroll=std[i].getRoll();
+	  }
+      }
+       for (int i = 0; i < n; i++)
+      {
+	if (mroll>msroll && std[i].getRoll()>msroll)
+	  {
+	    msroll=std[i].getRoll();
+	  }
+	  
+      }
+      for (int i = 0; i < n; i++){
+          if(msroll==std[i].getRoll()){
+	      mg=i;
+	  }
+      }
+    System.out.println ("Employee Name:"+std[mg].getName()+" "+"Employee salary:"+std[mg].getRoll()+" "+"Employee id:"+std[mg].getGrade());
+  }
+}
