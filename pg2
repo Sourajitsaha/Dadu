@@ -41,7 +41,7 @@ import java.util.*;
   }
 }
 
-public class Main
+public class Bad
 {
   public static void main (String[]args)
   {
@@ -61,7 +61,7 @@ public class Main
       }
     int mroll = std[0].getRoll ();
     int mg = 0;
-    int msroll=std[1].getRoll();
+    int msroll=0;
     for (int i = 0; i < n; i++)
       {
 	if (std[i].getRoll()>mroll)
@@ -71,14 +71,15 @@ public class Main
       }
        for (int i = 0; i < n; i++)
       {
-	if (mroll>msroll && std[i].getRoll()>msroll)
+	if (mroll>std[i].getRoll() && std[i].getRoll()>msroll)
 	  {
 	    msroll=std[i].getRoll();
 	  }
 	  
       }
       for (int i = 0; i < n; i++){
-          if(msroll==std[i].getRoll()){
+          if(msroll==std[i].getRoll())
+          {
 	      mg=i;
 	  }
       }
